@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
+
 
 class ContactForm extends Component {
   state = {
@@ -18,12 +20,15 @@ class ContactForm extends Component {
     const { onAddContact } = this.props;
     const isFormValidate = this.validateForm();
     if (!isFormValidate) return;
-    onAddContact({ name, number });
+    onAddContact({ name, number, id:nanoid() });
 
     this.resetForm();
   };
 
-  resetForm = () => this.setState(this.state);
+  resetForm = () => this.setState({
+    name: '',
+    number: ''});
+
 
   validateForm = () => {
     const { name } = this.state;

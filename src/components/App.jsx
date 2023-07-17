@@ -20,7 +20,7 @@ export class App extends Component {
   onCheckContact = name => {
     const { contacts } = this.state;
     const isExistName = contacts.find(contact => contact.name === name);
-    isExistName && alert(`${this.name}is already in contacs`);
+    isExistName && alert(`${name}is already in contacs`);
     return !isExistName;
   };
 
@@ -33,6 +33,7 @@ export class App extends Component {
 
   getFilterOfContacts = () => {
     const { contacts, filter } = this.state;
+
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );

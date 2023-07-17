@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 import ContactItem from 'components/ContactItem/ContactItem';
 import css from './ContactList.module.css';
 
@@ -8,7 +7,7 @@ const ContactList = ({ contacts, onDelete }) => {
   return (
     <ul className={css.contactList}>
       {contacts.map(contact => (
-        <ContactItem key={nanoid()} {...contact} onDelete={onDelete} />
+        <ContactItem key={contact.id} {...contact} onDelete={onDelete} />
       ))}
     </ul>
   );

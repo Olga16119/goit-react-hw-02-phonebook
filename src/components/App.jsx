@@ -19,7 +19,7 @@ export class App extends Component {
 
   onCheckContact = name => {
     const { contacts } = this.state;
-    const isExistName = contacts.find(contact => contact.name === name);
+    const isExistName = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
     isExistName && alert(`${name}is already in contacs`);
     return !isExistName;
   };
